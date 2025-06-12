@@ -1,0 +1,6 @@
+<!DOCTYPE RCC>
+<RCC>
+    <qresource prefix="language_boy">
+        <file alias="logo">images/logo.ico</file>
+    </qresource>
+</RCC>
