@@ -1,0 +1,46 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        architecture: 'x64'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install PyQt6==6.4.2
+        pip install nuitka==2.6.7
+        
+    - name: Build with Nuitka
+      run: |
+        python scripts/build.py
+    - name: List Build Directory
+      run: |
+        dir build
+      shell: cmd
+        
+    - name: Create Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: build/*.exe
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
