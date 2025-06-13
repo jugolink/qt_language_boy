@@ -44,55 +44,9 @@ config = [
     f'--output-filename={APP_NAME}.exe',
     f'--windows-icon-from-ico={ICON_PATH}',
     '--nofollow-import-to=numpy,scipy,matplotlib,pyserial,qfluentwidgets',
-    '--onefile-tempdir-spec={TEMP}/iaaaap',
+    '--onefile-tempdir-spec={TEMP}/qt_language_boy',
     '--remove-output',
 ]
-# config = [
-#     sys.executable,
-#     '-m', 'nuitka',
-#     '--standalone',
-#     '--mingw64',
-#     f'--output-dir={BUILD_DIR}',
-#     '--lto=yes',
-#     '--show-scons',
-#     '--enable-plugin=pyqt6',
-#     '--jobs=14',
-#     '--assume-yes-for-download',
-#     '--onefile',
-#     '--windows-console-mode=disable',
-#     f'--output-filename={APP_NAME}.exe',
-#     f'--windows-icon-from-ico={ICON_PATH}',
-#     f'--include-data-dir={os.path.join(ROOT_DIR, "resource", "images", "support")}=resource/images/support',
-#     f'--include-data-dir={os.path.join(ROOT_DIR, "resource", "images", "ad")}=resource/images/ad',
-#     '--follow-import-to=qfluentwidgets',
-#     '--nofollow-import-to=numpy,scipy,matplotlib,pyserial',
-#     '--onefile-tempdir-spec={TEMP}/ndbdsimu',
-#     '--remove-output',
-# ]
-
-# --include-data-dir 改用动态生成路径，以确保在workflows中路径正确。
-
-# config = [
-#     sys.executable,
-#     '-m', 'nuitka',
-#     '--standalone',
-#     '--mingw64',
-#     f'--output-dir={BUILD_DIR}',
-#     '--lto=yes',
-#     '--show-scons',
-#     '--enable-plugin=pyqt6',
-#     '--jobs=14',
-#     '--assume-yes-for-download',
-
-#     f'--output-filename={APP_NAME}.exe',
-#     f'--windows-icon-from-ico={ICON_PATH}',
-#     '--include-data-dir=D:/Work/gitee/pyqt_proj/ndbd-simu-tool/resource/images/support=resource/images/support',
-#     '--include-data-dir=D:/Work/gitee/pyqt_proj/ndbd-simu-tool/resource/images/ad=resource/images/ad',
-#     '--follow-import-to=qfluentwidgets',
-#     '--nofollow-import-to=numpy,scipy,matplotlib,pyserial',
-#     '--remove-output',
-# ]
-
 # 添加入口文件
 config.append(MAIN_SCRIPT)
 

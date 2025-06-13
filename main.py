@@ -244,14 +244,6 @@ class TranslationToolGUI(QMainWindow):
             self.config.write(f)
         return True
 
-    # def restore_paths(self):
-    #     paths = self.config['Paths']
-    #     self.lupdate_edit.setText(paths.get('lupdate', ''))
-    #     self.lrelease_edit.setText(paths.get('lrelease', ''))
-    #     self.linguist_edit.setText(paths.get('linguist', ''))
-    #     self.project_path_edit.setText(paths.get('project', ''))
-    #     self.update_generate_button_state()
-
     def restore_paths(self):
         try:
             paths = self.config['Paths']
